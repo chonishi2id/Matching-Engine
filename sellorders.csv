@@ -1,2 +1,22 @@
 username, prestige (set between 0 to 6), quantity (max 2147483647), price (price is fixed for now)
 doodoofard, 0.54, 12, 100
+Peter Parker, 3.25, 987654, 100
+Darth Vader, 2.13, 123456, 100
+Lando Calrissian, 3.78, 456789, 100
+Tony Stark, 6, 2147483647, 100
+Luke Skywalker, 4.67, 876543, 100
+Bruce Wayne, 3.90, 234567, 100
+Cringe Baby, 1.89, 9876543, 100
+Obi-Wan Kenobi, 4.62, 2345678, 100
+Captain America, 5.39, 100, 100
+Tony Montana, 6, 123456789, 100
+Indiana Jones, 2.25, 8765432, 100
+Deadpool, 3.10, 345678, 100
+Lara Croft, 5.69, 98765432, 100
+Geralt of Rivia, 2.84, 87654321, 100
+James Bond, 0.1, 1234567, 100
+John Wick, 5.9, 654321, 100
+Sherlock Holmes, 0.2, 3456789, 100
+Neo, 5.5, 23456789, 100
+Michael Scott, 3.45, 4567890, 100
+Tony Stark, 4.55, 987654321, 100
