@@ -1,5 +1,3 @@
-#ifndef ENGINE_H_
-#define ENGINE_H_
 #include <queue>
 #include <iostream>
 #include <string>
@@ -19,31 +17,32 @@ class Engine {
 		// TODO: A matching engine would require the following data on sell orders: Username, User prestige, Asset name, Asset quantity required to be filled, price
 		// Design: Matching engine will currently prioritize based on user prestige (prestige defined as how many successful transactions the user has had)
 		Engine(std::priority_queue<BuyOrder> buyers, std::priority_queue<SellOrder> sellers) {
-
+			buyOrders = buyers;
+			sellOrders = sellers;
 		}
 
 		std::priority_queue<BuyOrder> getBuyers() {
-
+			return this->buyOrders;
 		}
 
 		std::priority_queue<SellOrder> getSellers() {
-
+			return this->sellOrders;
 		}
 
 		void setBuyers(std::priority_queue<BuyOrder> buyOrders) {
-
+			this->buyOrders = buyOrders;
 		}
 
 		void setSellers(std::priority_queue<SellOrder> sellOrders) {
-
+			this->sellOrders = sellOrders;
 		}
 
 		void addBuyOrder(BuyOrder buyer){
-
+			this->buyOrders.push(buyer);
 		}
 
 		void addSellOrder (SellOrder seller) {
-
+			this->sellOrders.push(seller);
 		}
 		
 		void deleteBuyOrder() {
@@ -51,14 +50,10 @@ class Engine {
 		}
 
 		void deleteSellOrder() {
-
+			
 		}
 
 		void match() {
-
-		}
-
-		void terminate() {
 
 		}
 
@@ -66,5 +61,3 @@ class Engine {
 
 		// TODO: Define a function that matches orders
 };
-
-#endif // ENGINE_H_

@@ -1,12 +1,12 @@
-#ifndef BUYORDER_H_
-#define BUYORDER_H_
 #include <iostream>
 #include <string>
-/** This is the header file for buy order data code
+#include "buyorder.h"
+
+/** This is the file for buy order data code
  *  Written by: Timothy Daisuke Chon
- *  Date: 9/15/2023
+ *  Date: 10/4/2023
 */
-// User orders 
+
 class BuyOrder {
 	private:
 		std::string buyerName;
@@ -15,36 +15,41 @@ class BuyOrder {
 		int buyerPrice;
 		
 		BuyOrder(std::string username, int prestige, int quantity, int price) {
+			 buyerName = username;
+			 buyerPrestige = prestige;
+			 buyerQuantity = quantity;
+			 buyerPrice = price;
 		}
 
 		// check if overlap with sell order functions causes problems
 		std::string getUsername() {
-
+			return this->buyerName;
 		}
 
 		int getPrestige() {
-
+			return this->buyerPrestige;
 		}
 
 		int getQuantity() {
-
+			return this->buyerQuantity;
 		}
 
 		int getPrice() {
-
+			return this->buyerPrice;
 		}
 
 		void setBuyOrder(std::string username, int prestige, int quantity, int price) {
-
+			this->buyerName = username;
+			this->buyerPrestige = prestige;
+			this->buyerQuantity = quantity;
+			this->buyerPrice = price;
 		}
 
 		void deleteBuyOrder() {
-			
+			//look up how to delete things
 		}							
 
 		// TODO: Define a function that takes an input file and puts orders onto the relevant pqueue
 		
 		// TODO: Define a function that matches orders
 };
-
-#endif // BUYORDER_H_
