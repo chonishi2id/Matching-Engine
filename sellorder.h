@@ -10,20 +10,24 @@
 class SellOrder {
 	private:
 		std::string sellerName;
-		int sellerPrestige;
+		float sellerPrestige;
 		int sellerQuantity;
 		int sellerPrice;
-		
-		SellOrder(std::string username, int prestige, int quantity, int price) {
+
+	public:	
+		SellOrder(std::string username, float prestige, int quantity, int price) {
 			
 		}
 
+		~SellOrder() {
+			
+		}
 		// check if overlap with buy order functions causes problems
 		std::string getUsername() {
 
 		}
 
-		int getPrestige() {
+		float getPrestige() {
 
 		}
 
@@ -35,7 +39,7 @@ class SellOrder {
 
 		}
 
-		void setSellOrder(std::string username, int prestige, int quantity, int price) {
+		void setSellOrder(std::string username, float prestige, int quantity, int price) {
 
 		}
 

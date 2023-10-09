@@ -10,11 +10,12 @@
 class SellOrder {
 	private:
 		std::string sellerName;
-		int sellerPrestige;
+		float sellerPrestige;
 		int sellerQuantity;
 		int sellerPrice;
-		
-		SellOrder(std::string username, int prestige, int quantity, int price) {
+
+	public:	
+		SellOrder(std::string username, float prestige, int quantity, int price) {
 			sellerName = username;
 			sellerPrestige = prestige;
 			sellerQuantity = quantity;
@@ -26,7 +27,7 @@ class SellOrder {
 			return this->sellerName;
 		}
 
-		int getPrestige() {
+		float getPrestige() {
 			return this->sellerPrestige;
 		}
 
@@ -38,7 +39,7 @@ class SellOrder {
 			return this->sellerPrice;
 		}
 
-		void setSellOrder(std::string username, int prestige, int quantity, int price) {
+		void setSellOrder(std::string username, float prestige, int quantity, int price) {
 			this->sellerName = username;
 			this->sellerPrestige = prestige;
 			this->sellerQuantity = quantity;

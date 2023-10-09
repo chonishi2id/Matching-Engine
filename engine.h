@@ -3,6 +3,7 @@
 #include <queue>
 #include <iostream>
 #include <string>
+#include <vector>
 #include "buyorder.h"
 #include "sellorder.h"
 #include "engine.h"
@@ -12,12 +13,29 @@
 */
 class Engine {
 	public:
+		//Define custom prioritization based on user prestige
+		struct buyOrderPriority {
+
+		};
+
+		struct sellOrderPriority {
+
+		};
+
 		//PQueues for buy orders and sell orders
-		std::priority_queue<BuyOrder> buyOrders;
-		std::priority_queue<SellOrder> sellOrders;
+		std::priority_queue<BuyOrder, std::vector<BuyOrder>, buyOrderPriority> buyOrders;
+		std::priority_queue<SellOrder, std::vector<SellOrder>, sellOrderPriority> sellOrders;
 		// TODO: A matching engine would require the following data on buy orders: Username, User prestige, Asset name, Asset quantity required to be filled, price
 		// TODO: A matching engine would require the following data on sell orders: Username, User prestige, Asset name, Asset quantity required to be filled, price
 		// Design: Matching engine will currently prioritize based on user prestige (prestige defined as how many successful transactions the user has had)
+		Engine() {
+
+		}
+
+		Engine(std::vector<BuyOrder> buyers, std::vector<SellOrder> sellers) {
+
+		}
+
 		Engine(std::priority_queue<BuyOrder> buyers, std::priority_queue<SellOrder> sellers) {
 
 		}
@@ -45,12 +63,12 @@ class Engine {
 		void addSellOrder (SellOrder seller) {
 
 		}
-		
-		void deleteBuyOrder() {
+
+		void deleteBuyOrder(BuyOrder buyer) {
 
 		}
 
-		void deleteSellOrder() {
+		void deleteSellorder(SellOrder seller) {
 
 		}
 
