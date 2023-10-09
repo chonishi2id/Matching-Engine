@@ -2,6 +2,7 @@
 #define SELLORDER_H_
 #include <iostream>
 #include <string>
+using namespace std;
 /** This is the header file for sell order data code
  *  Written by: Timothy Daisuke Chon
  *  Date: 9/15/2023
@@ -9,43 +10,29 @@
 // User orders 
 class SellOrder {
 	private:
-		std::string sellerName;
+		string sellerName;
 		float sellerPrestige;
 		int sellerQuantity;
 		int sellerPrice;
 
 	public:	
-		SellOrder(std::string username, float prestige, int quantity, int price) {
-			
-		}
+		SellOrder(string username, float prestige, int quantity, int price);
 
-		~SellOrder() {
-			
-		}
+		~SellOrder();
+
+		void printOrder();
 		// check if overlap with buy order functions causes problems
-		std::string getUsername() {
+		string getUsername();
 
-		}
+		float getPrestige();
 
-		float getPrestige() {
+		int getQuantity();
 
-		}
+		int getPrice();
 
-		int getQuantity() {
+		void setSellOrder(string username, float prestige, int quantity, int price);
 
-		}
-
-		int getPrice() {
-
-		}
-
-		void setSellOrder(std::string username, float prestige, int quantity, int price) {
-
-		}
-
-		void deleteSellOrder(SellOrder seller) {
-
-		}
+		void deleteSellOrder(SellOrder seller);
 
 		// TODO: Define a function that takes an input file and puts orders onto the relevant pqueue
 		

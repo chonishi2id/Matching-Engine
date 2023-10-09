@@ -1,57 +1,51 @@
 #include <iostream>
 #include <string>
 #include "sellorder.h"
-
+using namespace std;
 /** This is the file for sell order data code
  *  Written by: Timothy Daisuke Chon
  *  Date: 10/4/2023
 */
 
-class SellOrder {
-	private:
-		std::string sellerName;
-		float sellerPrestige;
-		int sellerQuantity;
-		int sellerPrice;
+SellOrder::SellOrder(string username, float prestige, int quantity, int price) {
+	sellerName = username;
+	sellerPrestige = prestige;
+	sellerQuantity = quantity;
+	sellerPrice = price;
+}
 
-	public:	
-		SellOrder(std::string username, float prestige, int quantity, int price) {
-			sellerName = username;
-			sellerPrestige = prestige;
-			sellerQuantity = quantity;
-			sellerPrice = price;
-		}
+SellOrder::~SellOrder() {	
+}
+
+void SellOrder::printOrder() {
+	cout << "Sell Order for " + this->sellerName + ": " << endl;
+	cout << "Prestige: " + to_string(this->sellerPrestige) << endl;
+	cout << "Quantity: " + to_string(this->sellerQuantity) << endl;
+	cout << "Price: " + to_string(this->sellerPrice) << endl;
+	return;
+}
 
 		// check if overlap with buy order functions causes problems
-		std::string getUsername() {
-			return this->sellerName;
-		}
+string SellOrder::getUsername() {
+	return this->sellerName;
+}
 
-		float getPrestige() {
-			return this->sellerPrestige;
-		}
+float SellOrder::getPrestige() {
+	return this->sellerPrestige;
+}
 
-		int getQuantity() {
-			return this->sellerQuantity;
-		}
+int SellOrder::getQuantity() {
+	return this->sellerQuantity;
+}
 
-		int getPrice() {
-			return this->sellerPrice;
-		}
+int SellOrder::getPrice() {
+	return this->sellerPrice;
+}
 
-		void setSellOrder(std::string username, float prestige, int quantity, int price) {
-			this->sellerName = username;
-			this->sellerPrestige = prestige;
-			this->sellerQuantity = quantity;
-			this->sellerPrice = price;
-		}
-
-		void deleteSellOrder(SellOrder seller) {
-			// look up how to delete stuff
-		}
-
-		// TODO: Define a function that takes an input file and puts orders onto the relevant pqueue
-		
-		// TODO: Define a function that matches orders
-};
+void SellOrder::setSellOrder(string username, float prestige, int quantity, int price) {
+	this->sellerName = username;
+	this->sellerPrestige = prestige;
+	this->sellerQuantity = quantity;
+	this->sellerPrice = price;
+}
 

@@ -1,8 +1,12 @@
 CC = g++
 CFLAGS = -Wall -g
+TARGET = main
 
-all: main.cpp
-	$(CC) $(CFLAGS) -o main main.cpp
+
+all: $(TARGET)
+
+$(TARGET): $(TARGET).cpp
+	$(CC) $(CFLAGS) -o $(TARGET) $(TARGET).cpp
 
 clean:
-	$(RM) main.exe
+	$(RM) $(TARGET)

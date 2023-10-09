@@ -6,7 +6,7 @@
 #include <vector>
 #include "buyorder.h"
 #include "sellorder.h"
-#include "engine.h"
+using namespace std;
 /** This is the header file for the main matching engine code
  *  Written by: Timothy Daisuke Chon
  *  Date: 9/15/2023
@@ -14,71 +14,49 @@
 class Engine {
 	public:
 		//Define custom prioritization based on user prestige
-		struct buyOrderPriority {
+	struct buyOrderPriority {
+		bool operator()(BuyOrder order1, BuyOrder order2) {
+			return order1.getPrestige() > order2.getPrestige();
+		} 
+	};
 
-		};
-
-		struct sellOrderPriority {
-
-		};
+	struct sellOrderPriority {
+		bool operator()(SellOrder order1, SellOrder order2) {
+			return order1.getPrestige() > order2.getPrestige();
+		}
+	};
 
 		//PQueues for buy orders and sell orders
-		std::priority_queue<BuyOrder, std::vector<BuyOrder>, buyOrderPriority> buyOrders;
-		std::priority_queue<SellOrder, std::vector<SellOrder>, sellOrderPriority> sellOrders;
+		priority_queue<BuyOrder, vector<BuyOrder>, buyOrderPriority> buyOrders;
+		priority_queue<SellOrder, vector<SellOrder>, sellOrderPriority> sellOrders;
 		// TODO: A matching engine would require the following data on buy orders: Username, User prestige, Asset name, Asset quantity required to be filled, price
 		// TODO: A matching engine would require the following data on sell orders: Username, User prestige, Asset name, Asset quantity required to be filled, price
 		// Design: Matching engine will currently prioritize based on user prestige (prestige defined as how many successful transactions the user has had)
-		Engine() {
+		Engine();
 
-		}
+		Engine(vector<BuyOrder> buyers, vector<SellOrder> sellers);
 
-		Engine(std::vector<BuyOrder> buyers, std::vector<SellOrder> sellers) {
+		Engine(priority_queue<BuyOrder, vector<BuyOrder>, buyOrderPriority> buyers, 
+			 priority_queue<SellOrder, vector<SellOrder>, sellOrderPriority> sellers);
 
-		}
+		priority_queue<BuyOrder, vector<BuyOrder>, buyOrderPriority> getBuyers();
 
-		Engine(std::priority_queue<BuyOrder> buyers, std::priority_queue<SellOrder> sellers) {
+		priority_queue<SellOrder, vector<SellOrder>, sellOrderPriority> getSellers();
 
-		}
+		void setBuyers(priority_queue<BuyOrder> buyOrders);
 
-		std::priority_queue<BuyOrder> getBuyers() {
+		void setSellers(priority_queue<SellOrder> sellOrders);
 
-		}
+		void addBuyOrder(BuyOrder buyer);
 
-		std::priority_queue<SellOrder> getSellers() {
+		void addSellOrder (SellOrder seller);
 
-		}
+		void deleteBuyOrder(BuyOrder buyer);
 
-		void setBuyers(std::priority_queue<BuyOrder> buyOrders) {
+		void deleteSellorder(SellOrder seller);
 
-		}
+		void match();
 
-		void setSellers(std::priority_queue<SellOrder> sellOrders) {
-
-		}
-
-		void addBuyOrder(BuyOrder buyer){
-
-		}
-
-		void addSellOrder (SellOrder seller) {
-
-		}
-
-		void deleteBuyOrder(BuyOrder buyer) {
-
-		}
-
-		void deleteSellorder(SellOrder seller) {
-
-		}
-
-		void match() {
-
-		}
-
-		void terminate() {
-
-		}
 
 		// TODO: Define a function that takes an input file and puts orders onto the relevant pqueue
 
